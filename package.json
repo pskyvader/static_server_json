@@ -1,0 +1,14 @@
+{
+  "name": "static_server_json",
+  "version": "1.0.0",
+  "description": "a mini server to list and show every files and folders in a given location",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
