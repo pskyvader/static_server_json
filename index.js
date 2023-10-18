@@ -4,14 +4,14 @@ const path = require("path");
 
 const app = express();
 const baseFolderPath = "C:\\Users\\pskyv\\Documents\\pico_curtains\\";
-const excludedExtensions = [".gitignore", ".conf", ".md"]; // Add more extensions as needed
+const excludedExtensions = [".gitignore", ".conf", ".md", ".micropico"]; // Add more extensions as needed
 
 function isExcludedFile(file) {
 	const fileName = path.basename(file);
 	const extension = path.extname(file).toLowerCase();
 
-	const excludedFiles = [".gitignore", "LICENSE"]; // Add more files as needed
-	const excludedFolders = [".git"]; // Add more folders as needed
+	const excludedFiles = [".gitignore", "LICENSE", ".micropico"]; // Add more files as needed
+	const excludedFolders = [".git", ".vscode"]; // Add more folders as needed
 
 	return (
 		excludedFiles.includes(fileName) ||
@@ -59,11 +59,14 @@ app.get("/*", (req, res) => {
 		res.download(filePath, (err) => {
 			if (err) {
 				console.error(err);
-				res.status(500).json({ error: "Internal Server Error" });
+				res.status(500).json({
+					error: "Internal Server Error",
+					path: filePath,
+				});
 			}
 		});
 	} else {
-		res.status(404).json({ error: "File Not Found" });
+		res.status(404).json({ error: "File Not Found", path: filePath });
 	}
 });
 
