@@ -11,7 +11,7 @@ function isExcludedFile(file) {
 	const extension = path.extname(file).toLowerCase();
 
 	const excludedFiles = [".gitignore", "LICENSE", ".micropico"]; // Add more files as needed
-	const excludedFolders = [".git", ".vscode"]; // Add more folders as needed
+	const excludedFolders = [".git", ".vscode","components/esp/__pycache__","components/updater/__pycache__"]; // Add more folders as needed
 
 	return (
 		excludedFiles.includes(fileName) ||
