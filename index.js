@@ -32,8 +32,8 @@ function getFilesRecursive(folderPath, baseURL) {
 				const relativePath = path
 					.relative(baseFolderPath, fullPath)
 					.replace(/\\/g, "/"); // Replace backslashes with forward slashes
-				const fileURL = new URL(relativePath, baseURL).href;
-				files.push(fileURL);
+				// const fileURL = new URL(relativePath, baseURL).href;
+				files.push(relativePath);
 			}
 		} else if (entry.isDirectory()) {
 			if (!isExcludedFile(fullPath)) {
